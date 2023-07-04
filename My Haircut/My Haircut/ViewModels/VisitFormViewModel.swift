@@ -6,16 +6,33 @@
 //
 
 import Foundation
-import SwiftUI
+import CoreData
 final class VisitFormViewModel: ObservableObject {
+    
+    enum VisitScheduleError : Error {
+        case CantSchedule(reasoning: String)
+    }
+    
     private var context = PersistenceController.shared.container.viewContext
-    private var schedule = ScheduleManager.shared
+    private var schedule : ScheduleManager
+    
+    init( schedule: ScheduleManager) {
+        self.context = PersistenceController.shared.container.viewContext
+        self.schedule = schedule
+    }
+    
     // MARK - Public Methods
-    func OrganizeVisits(price: Double, date: Date) {
-        let visit = saveVisit(price: price, date: date)
-        ScheduleNextVisit(visit: visit)
-        // Resets the red badge icon over the app set during the notification creation
-        UIApplication.shared.applicationIconBadgeNumber = 0
+    func OrganizeVisits(price: Double, date: Date) throws {
+        do {
+            let visit = saveVisit(price: price, date: date)
+            try schedule.ScheduleNextVisit(visit: visit)
+        }
+        catch ScheduleManager.ScheduleError.MissingVisitDate {
+            throw VisitScheduleError.CantSchedule(reasoning: "Visit Date Missing")
+        }
+        catch {
+            
+        }
     }
     
     func saveVisit(price: Double, date: Date)-> Visit{

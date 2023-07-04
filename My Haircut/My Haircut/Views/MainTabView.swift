@@ -10,7 +10,7 @@ import SwiftUI
 struct MainTabView: View {
     var body: some View {
         TabView{
-            VisitFormView().tabItem(){
+            VisitFormView(schedule: ScheduleManager()).tabItem(){
                 Image(systemName: "scissors.badge.ellipsis")
                 Text("Visit")
             }
