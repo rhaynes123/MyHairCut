@@ -19,11 +19,6 @@ struct VisitFormView: View {
     init(schedule: ScheduleManager) {
         _model = StateObject(wrappedValue: VisitFormViewModel(schedule: schedule))
     }
-    let formatter: NumberFormatter = {
-            let currencyFormatter = NumberFormatter()
-        currencyFormatter.numberStyle = .currency
-            return currencyFormatter
-        }()
     
     var body: some View {
         NavigationStack {
@@ -36,7 +31,7 @@ struct VisitFormView: View {
                 }
                 
                 Section{
-                    TextField("Price", value: $priceOfVisit, formatter: formatter)
+                    TextField("Price", value: $priceOfVisit, formatter: NumberFormatter().toStyle(style: .currency))
                 } header: {
                     Text("Price Of Visit")
                 }
@@ -56,8 +51,7 @@ struct VisitFormView: View {
                             
                         }
                         displayAlert = true
-                        // Resets the red badge icon over the app set during the notification creation
-                        UIApplication.shared.applicationIconBadgeNumber = 0
+                        
                     }.alert(isPresented: $displayAlert){
                         Alert(title: Text(alertTitle),
                               message: Text(alertMessage))
@@ -65,6 +59,8 @@ struct VisitFormView: View {
                     }
                 }
             }.navigationBarTitle("Visit Information")
+            
+            
         }
     }
 }
@@ -73,5 +69,13 @@ struct VisitFormView: View {
 struct VisitFormView_Previews: PreviewProvider {
     static var previews: some View {
         VisitFormView(schedule: ScheduleManager())
+    }
+}
+
+extension NumberFormatter {
+    func toStyle(style: NumberFormatter.Style) -> NumberFormatter {
+        let formattedNumber = NumberFormatter()
+        formattedNumber.numberStyle = .currency
+        return formattedNumber
     }
 }

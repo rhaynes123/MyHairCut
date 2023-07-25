@@ -20,11 +20,12 @@ struct MainTabView: View {
                 Text("History")
             }
             SettingsView().tabItem(){
-                Image(systemName: "person")
+                Image(systemName: "gear")
                 Text("Settings")
             }
         }.onAppear {
             NotificationsManager.shared.requestNotificationAuthorization()
+            UIApplication.shared.applicationIconBadgeNumber = 0
         }
     }
 }

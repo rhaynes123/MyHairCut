@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import Charts
 
 struct VisitHistoryView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -25,22 +26,33 @@ struct VisitHistoryView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(visits) { visit in
-                    NavigationLink {
-                        Text("Visit took place at \(visit.dateOfVisit!, formatter: dateFormatter)")
-                    } label: {
-                        let price = visit.price.formatted(.currency(code: "USD"))
-                        Text(visit.dateOfVisit!, formatter: dateFormatter)
-                        Text("\(price)")
+            VStack {
+                Text("Spending By Week")
+                Chart {
+                    ForEach(visits) { visit in
+                        LineMark(
+                            x: .value("Week", visit.dateOfVisit!, unit: .day),
+                            y: .value("Price", visit.price)
+                        ).foregroundStyle(Color.red)
                     }
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .navigationBarTitle(Text("History of Visits"))
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
+                List {
+                    ForEach(visits) { visit in
+                        NavigationLink {
+                            Text("Visit took place at \(visit.dateOfVisit!, formatter: dateFormatter)")
+                        } label: {
+                            let price = visit.price.formatted(.currency(code: "USD"))
+                            Text(visit.dateOfVisit!, formatter: dateFormatter)
+                            Text("\(price)")
+                        }
+                    }
+                    .onDelete(perform: deleteItems)
+                }
+                .navigationBarTitle(Text("History of Visits"))
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
+                    }
                 }
             }
         }
