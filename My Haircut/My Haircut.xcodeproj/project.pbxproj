@@ -45,6 +45,7 @@
 		55017FE32A47566200300E64 /* ScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleManager.swift; sourceTree = "<group>"; };
 		551CFFB82A43A34C007842E2 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		5558407D2A4394C80017B05B /* VisitFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitFormView.swift; sourceTree = "<group>"; };
+		55631F822A8FA76C004D8A7C /* My-Haircut-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "My-Haircut-Info.plist"; sourceTree = SOURCE_ROOT; };
 		55958F992A43A47A009E3F33 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		55958F9C2A43B516009E3F33 /* VisitFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitFormViewModel.swift; sourceTree = "<group>"; };
 		55958F9F2A43C597009E3F33 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -138,6 +139,7 @@
 		55C108762A43373400A5177A /* My Haircut */ = {
 			isa = PBXGroup;
 			children = (
+				55631F822A8FA76C004D8A7C /* My-Haircut-Info.plist */,
 				55D2B7102A44DF38000EBD4E /* Models */,
 				55958F9E2A43C576009E3F33 /* Managers */,
 				55958F9B2A43B4F8009E3F33 /* ViewModels */,
@@ -484,9 +486,9 @@
 				DEVELOPMENT_TEAM = P7FYQ2HW53;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "My-Haircut-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -494,7 +496,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Richard.My-Haircut";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Richard.MyHaircut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -513,9 +515,9 @@
 				DEVELOPMENT_TEAM = P7FYQ2HW53;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "My-Haircut-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -523,7 +525,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Richard.My-Haircut";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Richard.MyHaircut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

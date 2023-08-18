@@ -17,7 +17,7 @@ struct ScheduleManager {
     
     init(){
         numOfDaysSetting = UserDefaults.standard.integer(forKey: "NumberOfDaysForNextNotificationSetting")
-        timeSetting = UserDefaults.standard.object(forKey: "timeUserSetting") as! Date
+        timeSetting = UserDefaults.standard.object(forKey: "timeUserSetting") as? Date ?? Date()
     }
     
     init(numOfDaysSettings : Int, timeSettings : Date){

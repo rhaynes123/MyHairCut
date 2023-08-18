@@ -22,12 +22,29 @@ final class My_HaircutUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testSaveVisit() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
 
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        //let app = XCUIApplication()
+        let verticalScrollBar1PageCollectionView = app/*@START_MENU_TOKEN@*/.collectionViews.containing(.other, identifier:"Vertical scroll bar, 1 page").element/*[[".collectionViews.containing(.other, identifier:\"Horizontal scroll bar, 1 page\").element",".collectionViews.containing(.other, identifier:\"Vertical scroll bar, 1 page\").element"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        verticalScrollBar1PageCollectionView.tap()
+        
+        let priceTextField = app.collectionViews/*@START_MENU_TOKEN@*/.textFields["Price"]/*[[".cells.textFields[\"Price\"]",".textFields[\"Price\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        priceTextField.tap()
+        priceTextField.tap()
+        
+        app.collectionViews.staticTexts["Select All"].tap()
+        priceTextField.typeText(XCUIKeyboardKey.delete.rawValue)
+        priceTextField.typeText("10.00")
+        verticalScrollBar1PageCollectionView.tap()
+        app.collectionViews/*@START_MENU_TOKEN@*/.buttons["Save Visit"]/*[[".cells.buttons[\"Save Visit\"]",".buttons[\"Save Visit\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.alerts["Visit has been logged"].scrollViews.otherElements.buttons["OK"].tap()
+        
+                
     }
 
     func testLaunchPerformance() throws {
